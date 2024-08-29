@@ -7,7 +7,7 @@ import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.*; //bu ikisi bazen gelmeyebilir kendimiz eklememizde fayda var.
 import static org.hamcrest.Matchers.*;
 
 public class _01_ApiTest {
@@ -35,7 +35,7 @@ public class _01_ApiTest {
 
                 .then()
                 .log().body() // dönen body json data , log().all() : gidip gelen her şey
-                .statusCode(200) // test kısmı olduğundan assertion status code 200 mü
+                .statusCode(200) // test kısmı olduğundan assertion status code 200 mü diye kontrol ediyoruz
         ;
     }
 
@@ -50,7 +50,7 @@ public class _01_ApiTest {
                 .then()
                 .log().body() // dönen body json data , log().all() : gidip gelen her şey
                 .statusCode(200) // test kısmı olduğundan assertion status code 200 mü
-                .contentType(ContentType.JSON)  // dönen datanın tipi JSON mı
+                .contentType(ContentType.JSON)  // dönen datanın tipi JSON mı diye kontrol ediyoruz
         ;
     }
 
@@ -64,8 +64,8 @@ public class _01_ApiTest {
 
                 .then()
                 .log().body()
-                .statusCode(200)  // assertion
-                .body("country", equalTo("United States")) //assertion
+                .statusCode(200)  // bu da assertion
+                .body("country", equalTo("United States")) //bu da assertion
                 // body nin country değişkeni "United States" eşit Mİ
         ;
     }
