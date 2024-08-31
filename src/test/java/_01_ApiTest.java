@@ -133,7 +133,7 @@ public class _01_ApiTest {
     }
 
     @Test
-    public void combiningTest(){
+    public void combiningTest(){  //birden fazla şeyi test edebiliriz.
 
         given()
                 .when()
@@ -154,6 +154,8 @@ public class _01_ApiTest {
                 .pathParam("ulke","us")
                 .pathParam("postaKod",90210)
                 .log().uri() // request link çalışmadan önceki hali
+            // yani biz burda path param ile bir endpoint oluşturduk, bu endpoint in nasıl geldiğini görmek istiyoruz,
+            // yani öncesinde almak istediğimiz verileri bu şekilde alabiliriz
 
                 .when()
                 .get("http://api.zippopotam.us/{ulke}/{postaKod}")
@@ -168,7 +170,7 @@ public class _01_ApiTest {
         // https://gorest.co.in/public/v1/users?page=3
         given()
                 .param("page",1) // ?page=1  şeklinde linke ekleniyor  // queryParam ile de kullanılabilir
-                .log().uri()
+                .log().uri() // https://gorest.co.in/public/v1/users?page=1   şeklinde gelecek.
 
                 .when()
                 .get("https://gorest.co.in/public/v1/users") // ?page=1
